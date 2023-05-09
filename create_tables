@@ -1,0 +1,33 @@
+CREATE TABLE authors
+(
+	author_id integer PRIMARY KEY,
+	first_name varchar(255) NOT NULL,
+	last_name varchar(255)
+);
+
+CREATE TABLE readers
+(
+	reader_id integer PRIMARY KEY,
+	first_name varchar(255) NOT NULL,
+	last_name varchar(255),
+	number_phone varchar(255)
+	--fk_books_id integer REFERENCES books(book_id) NOT NULL
+);
+
+CREATE TABLE books
+(
+	book_id integer PRIMARY KEY,
+	title text NOT NULL,
+	genre text NOT NULL,
+	fk_author_id integer REFERENCES authors(author_id) NOT NULL,
+	fk_reader_id integer REFERENCES readers(reader_id)
+);
+
+CREATE TABLE registers
+(
+	register_id integer PRIMARY KEY,
+	mode_move bool,
+	fk_reader_id integer REFERENCES readers(reader_id) NOT NULL,
+	fk_book_id integer REFERENCES books(book_id) NOT NULL
+)
+

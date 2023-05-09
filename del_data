@@ -1,0 +1,14 @@
+DELETE 
+FROM registers;--, readers, books, authors;
+
+DELETE 
+FROM readers;
+
+DELETE 
+FROM books;
+
+DELETE 
+FROM authors;
+
+SELECT * 
+FROM authors

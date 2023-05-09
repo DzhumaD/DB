@@ -20,8 +20,8 @@ class Books(Base):
     book_id = Column(Integer, primary_key=True)
     title = Column(String(100), nullable=False)
     genre = Column(String(100), nullable=False)
-    fk_author_id = Column(Integer, ForeignKey('authors.author_id'))
-
+    fk_author_id = Column(Integer, ForeignKey('authors.author_id'), nullable=False)
+    fk_reader_id = Column(Integer, ForeignKey('readers.reader_id'))
 
 class Readers(Base):
     __tablename__ = 'readers'
@@ -29,11 +29,11 @@ class Readers(Base):
     first_name = Column(String(100), nullable=False)
     last_name = Column(String(100), nullable=False)
     number_phone = Column(String(100), nullable=False)
-    fk_books_id = Column(Integer, ForeignKey('books.book_id'))
+
 
 class Registers(Base):
     __tablename__ = 'registers'
     register_id = Column(Integer, primary_key=True)
     mode_move = Column(Boolean, nullable=False) # True - взял, False - сдал.
-    fk_readers_id = Column(Integer, ForeignKey('readers.reader_id'))
-    fk_books_id = Column(Integer, ForeignKey('books.book_id'))
+    fk_reader_id = Column(Integer, ForeignKey('readers.reader_id'), nullable=False)
+    fk_book_id = Column(Integer, ForeignKey('books.book_id'), nullable=False)
