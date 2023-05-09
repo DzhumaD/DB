@@ -33,7 +33,7 @@ def popular_genre(id_reader=None):
             print("К сожалению, пользователь с таким ID не существует или не брал книги")
     else:
         print("Введите ID пользователя")
-popular_genre(2)
+# popular_genre(2)
 
 # print(sys.argv)
 

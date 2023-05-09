@@ -29,5 +29,40 @@ CREATE TABLE registers
 	mode_move bool,
 	fk_reader_id integer REFERENCES readers(reader_id) NOT NULL,
 	fk_book_id integer REFERENCES books(book_id) NOT NULL
-)
+);
 
+INSERT INTO authors
+VALUES
+(1, 'Александр', 'Пушкин'),
+(2, 'Лев', 'Толстой'),
+(3, 'Михаил', 'Лермонтов');
+
+INSERT INTO readers
+VALUES
+(1, 'Василий', 'Пупкин', '89991234556'),
+(2, 'Юрий', 'Степанов', '89991234888'),
+(3, 'Михаил', 'Грачев', '8999123896');
+
+INSERT INTO books
+VALUES
+(1, 'Капитанская дочка', 'Классика', 1, 1),
+(2, 'Евгений Онегин', 'Классика', 1, 1),
+(3, 'Руслан и Людмила', 'Классика', 1, NULL),
+(4, 'Дубровский', 'Классика', 1, 2),
+(5, 'Война и мир', 'Роман', 2, 3),
+(6, 'Анна Каренина', 'Роман', 2, 3),
+(7, 'Мцыри', 'Поэма', 3, 2);
+
+INSERT INTO registers
+VALUES
+(1, TRUE, 1, 1),
+(2, FALSE, 1, 1),
+(3, TRUE, 1, 2),
+(4, FALSE, 1, 2),
+(5, TRUE, 2, 1),
+(6, FALSE, 2, 1),
+(7, TRUE, 3, 3),
+(8, FALSE, 3, 3),
+(9, TRUE, 3, 7),
+(10, TRUE, 3, 7),
+(11, TRUE, 3, 7);
